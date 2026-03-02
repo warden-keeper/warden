@@ -1,0 +1,12 @@
+name: validate-save
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 3 1 * *'
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: node tools/validate.js
